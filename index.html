@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Neon Ring Fighters</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="game-shell">
+    <canvas id="gameCanvas" aria-label="2D fighting game arena"></canvas>
+
+    <section class="hud" aria-label="Game heads-up display">
+      <div class="fighter-panel">
+        <span class="fighter-name blue">Player</span>
+        <div class="health-frame">
+          <div id="playerHealth" class="health-fill player-health"></div>
+        </div>
+        <span id="playerHpText" class="hp-text">100 HP</span>
+      </div>
+
+      <div class="score-panel">
+        <span>Round <strong id="roundCounter">1</strong></span>
+        <span class="score-line"><strong id="playerScore">0</strong> - <strong id="enemyScore">0</strong></span>
+        <span id="pauseHint">Press P to Pause</span>
+      </div>
+
+      <div class="fighter-panel right">
+        <span class="fighter-name red">AI Opponent</span>
+        <div class="health-frame">
+          <div id="enemyHealth" class="health-fill enemy-health"></div>
+        </div>
+        <span id="enemyHpText" class="hp-text">100 HP</span>
+      </div>
+    </section>
+
+    <div id="roundMessage" class="round-message hidden" role="status" aria-live="polite"></div>
+
+    <section id="startMenu" class="overlay">
+      <div class="menu-card">
+        <p class="eyebrow">Retro Arcade Brawler</p>
+        <h1>Neon Ring Fighters</h1>
+        <p class="menu-copy">Blue versus Red in a pixel-style arena. Chain punches and kicks, manage distance, and survive the AI as it gets tougher each round.</p>
+        <div class="controls-grid">
+          <span>Move</span><strong>Arrow Keys</strong>
+          <span>Jump</span><strong>Up Arrow</strong>
+          <span>Crouch</span><strong>Down Arrow</strong>
+          <span>Punch</span><strong>Spacebar</strong>
+          <span>Kick</span><strong>Shift</strong>
+          <span>Pause</span><strong>P</strong>
+        </div>
+        <div class="button-row">
+          <button id="startButton" class="primary-button">Start Fight</button>
+          <button id="soundToggleButton" class="secondary-button">Sound: On</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="victoryScreen" class="overlay hidden">
+      <div class="menu-card victory-card">
+        <p class="eyebrow">Match Complete</p>
+        <h2 id="victoryTitle">Victory!</h2>
+        <p id="victorySummary" class="menu-copy">The arena has a new champion.</p>
+        <button id="restartButton" class="primary-button">Restart Match</button>
+      </div>
+    </section>
+  </main>
+
+  <script src="fighter.js?v=3"></script>
+  <script src="ai.js?v=3"></script>
+  <script src="game.js?v=3"></script>
+</body>
+</html>
